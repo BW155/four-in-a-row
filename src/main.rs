@@ -9,7 +9,7 @@ mod objects;
 mod winner_calc;
 
 const BOARD_SIZE: i64 = 8;
-const AI_ENABLED: bool = true;
+const AI_ENABLED: bool = false;
 
 fn main() {
     println!("Welcome to four-in-a-row");
