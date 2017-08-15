@@ -1,0 +1,7 @@
+[package]
+name = "four_in_a_row"
+version = "0.1.0"
+authors = ["DerUberCatman <b.wisman155@gmail.com>"]
+
+[dependencies]
+rprompt = "1.0.3"
