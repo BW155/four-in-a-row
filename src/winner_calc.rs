@@ -3,8 +3,8 @@ use BOARD_SIZE;
 
 pub const UP: [(i64, i64); 4] = [(0, 0), (0, 1), (0, 2), (0, 3)];
 pub const RIGHT: [(i64, i64); 4] = [(0, 0), (1, 0), (2, 0), (3, 0)];
-pub const UP_RIGHT: [(i64, i64); 4] = [(0, 0), (1, 1), (2, 2), (3, 3)];
-pub const UP_LEFT: [(i64, i64); 4] = [(0, 0), (-1, -1), (-2, -2), (-3, -3)];
+pub const UP_RIGHT: [(i64, i64); 4] = [(0, 0), (-1, 1), (-2, 2), (-3, 3)];
+pub const UP_LEFT: [(i64, i64); 4] = [(0, 0), (1, 1), (2, 2), (3, 3)];
 
 pub fn calculate_winner(positions: &Vec<Position>) -> i64 {
     for p in positions.clone() {
@@ -14,12 +14,12 @@ pub fn calculate_winner(positions: &Vec<Position>) -> i64 {
             if direction_taken(UP, &x, &y, positions.clone()) {
                 return p.player;
             }
-            if x < (BOARD_SIZE - 3) {
+            if x > 2 {
                 if direction_taken(UP_RIGHT, &x, &y,  positions.clone()) {
                     return p.player;
                 }
             }
-            if x > 2 {
+            if x < (BOARD_SIZE - 3)  {
                 if direction_taken(UP_LEFT, &x, &y, positions.clone()) {
                     return p.player;
                 }

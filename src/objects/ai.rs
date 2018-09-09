@@ -33,7 +33,7 @@ impl Ai {
             for p in d {
                 for pos in positions {
                     if p.0 == pos.x && p.1 == pos.y {
-                    
+                         
                     }
                 }
             }

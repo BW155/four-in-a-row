@@ -2,6 +2,9 @@ use objects::Position;
 use BOARD_SIZE;
 
 pub fn draw_board(positions: &Vec<Position>) {
+    (0..BOARD_SIZE).for_each(|e| print!(" {}  ", e + 1));
+    println!();
+
     for y in 0..BOARD_SIZE {
         for x in 0..BOARD_SIZE {
             let mut found = false;

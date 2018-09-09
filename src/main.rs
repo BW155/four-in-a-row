@@ -9,7 +9,6 @@ mod objects;
 mod winner_calc;
 
 const BOARD_SIZE: i64 = 8;
-const AI_ENABLED: bool = false;
 
 fn main() {
     println!("Welcome to four-in-a-row");
@@ -18,6 +17,9 @@ fn main() {
     let mut positions: Vec<Position> = Vec::new();
     let mut error: Option<String> = None;
     let ai = Ai::new();
+
+    let enable_ai = rprompt::prompt_reply_stdout("enable ai? y/n: ").unwrap();
+    let ai_enabled =enable_ai == "y".to_string();
 
     while winner == 0 {
         clear_board();
@@ -50,7 +52,7 @@ fn main() {
         }
         
         let row_number = 
-            if AI_ENABLED && turn == 2 {
+            if ai_enabled && turn == 2 {
                 Ok(ai.get_move(&positions))
             } else {
                 let reply = rprompt::prompt_reply_stdout("Choose row number: ").unwrap();
