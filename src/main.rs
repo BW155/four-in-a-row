@@ -18,8 +18,17 @@ fn main() {
     let mut error: Option<String> = None;
     let ai = Ai::new();
 
-    let enable_ai = rprompt::prompt_reply_stdout("enable ai? y/n: ").unwrap();
-    let ai_enabled =enable_ai == "y".to_string();
+    
+    let multiplayer = rprompt::prompt_reply_stdout("(S)ingleplayer/(M)ultiplayer ? (default S): ").unwrap();
+    if multiplayer.to_lowercase() == "m".to_string() {    
+        let server = rprompt::prompt_reply_stdout("(S)erver/(C)lient ? (default S): ").unwrap();
+        if server.to_lowercase() == "s".to_string() {    
+            
+        }
+    }
+
+    // let enable_ai = rprompt::prompt_reply_stdout("enable ai? y/n: ").unwrap();
+    let ai_enabled = false; // enable_ai == "y".to_string();
 
     while winner == 0 {
         clear_board();
