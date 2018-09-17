@@ -23,6 +23,23 @@ fn main() {
     if multiplayer.to_lowercase() == "m".to_string() {    
         let server = rprompt::prompt_reply_stdout("(S)erver/(C)lient ? (default S): ").unwrap();
         if server.to_lowercase() == "s".to_string() {    
+            let mut port = 0;
+            while port < 1000 {
+                clear_board();
+                let port_str = rprompt::prompt_reply_stdout("Port 4-digits: (5005): ").unwrap();
+                if port_str.len() == 0 {
+                    port = 5005;
+                } else {
+                    port = if let Ok(p) = port_str.parse::<i64>() {
+                        p
+                    } else {
+                        println!("Thats not a number");
+                        0
+                    };
+
+                }
+            }
+            
             
         }
     }
